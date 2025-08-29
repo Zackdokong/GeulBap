@@ -26,7 +26,6 @@ export default function HomeScreen() {
             끝판왕 <Text style={styles.nim}>님</Text>
           </Text>
         </View>
-
         {/* 달력 카드 */}
         <View style={styles.card}>
           <Text style={styles.cardTitle}>오늘은 2024년 7월 15일 입니다.</Text>

@@ -6,7 +6,7 @@ export default function Navigator() {
   const router = useRouter();
   const pathname = usePathname();
 
-  type AppRoute = "/" | "/vocab" | "/book" | "/ranking" | "/profile";
+  type AppRoute = "/" | "/vocab" | "/book" | "/ranking" | "/login";
 
   const tabs: {
     name: string;
@@ -35,7 +35,7 @@ export default function Navigator() {
     },
     {
       name: "profile",
-      route: "/profile",
+      route: "/login",
       icon: "person-outline",
       iconActive: "person",
     },

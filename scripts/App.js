@@ -7,10 +7,10 @@ import { StatusBar } from 'react-native';
 
 import BookScreen from "../app/book";
 import HomeScreen from "../app/index";
+import LoginScreen from "../app/login";
 import ProfileScreen from "../app/profile";
 import RankingScreen from "../app/ranking";
 import VocabScreen from "../app/vocab";
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -27,6 +27,7 @@ export default function App() {
         <Stack.Screen name="Vocab" component={VocabScreen} />
         <Stack.Screen name="Book" component={BookScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

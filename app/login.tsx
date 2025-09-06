@@ -1,14 +1,15 @@
 import { Ionicons } from "@expo/vector-icons";
 import Checkbox from "expo-checkbox";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    Image,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function LoginScreen() {
@@ -16,7 +17,7 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
   const [secure, setSecure] = useState(true);
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
-
+  const router = useRouter();
   return (
     <View style={styles.container}>
       {/* 로고 */}
@@ -57,7 +58,7 @@ export default function LoginScreen() {
       </View>
 
       {/* 로그인 버튼 */}
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={() => router.push("/profile")}>
         <Text style={styles.loginButtonText}>로그인하기</Text>
       </TouchableOpacity>
 

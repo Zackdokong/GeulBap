@@ -14,6 +14,7 @@ export default function Navigator() {
     icon: string;
     iconActive: string;
   }[] = [
+    { name: "home", route: "/", icon: "home-outline", iconActive: "home" },
     {
       name: "vocab",
       route: "/vocab",
@@ -26,7 +27,7 @@ export default function Navigator() {
       icon: "library-outline",
       iconActive: "library",
     },
-    { name: "home", route: "/", icon: "home-outline", iconActive: "home" },
+
     {
       name: "ranking",
       route: "/ranking",

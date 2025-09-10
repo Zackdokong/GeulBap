@@ -5,12 +5,14 @@ import * as React from "react";
 import { useEffect } from "react";
 import { StatusBar } from 'react-native';
 import AnalyzedScreen from "../app/AnalyzedScreen";
+import WordScreen from "../app/WordScreen";
 import BookScreen from "../app/book";
 import HomeScreen from "../app/index";
 import LoginScreen from "../app/login";
 import ProfileScreen from "../app/profile";
 import RankingScreen from "../app/ranking";
 import VocabScreen from "../app/vocab";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -29,6 +31,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="AnalyzedScreen" component={AnalyzedScreen} />
+        <Stack.Screen name="WordScreen" component={WordScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

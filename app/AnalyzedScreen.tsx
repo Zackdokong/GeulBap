@@ -1,4 +1,4 @@
-// AnalyzedScreen.tsx
+import { useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   ScrollView,
@@ -8,7 +8,8 @@ import {
   View,
 } from "react-native";
 
-export default function AnalyzedScreen({ navigation }: any) {
+export default function AnalyzedScreen() {
+  const navigation = useNavigation<any>(); 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -67,7 +68,6 @@ export default function AnalyzedScreen({ navigation }: any) {
       <TouchableOpacity
         style={styles.wordButton}
         onPress={() => {
-          // 예시: 단어 확인하기 화면 이동 (WordScreen 같은 거 연결해도 됨)
           navigation.navigate("WordScreen");
         }}
       >
@@ -157,5 +157,4 @@ const styles = StyleSheet.create({
     opacity: 0.4,
     zIndex: -1,
   },
-  
 });

@@ -4,7 +4,7 @@ import * as NavigationBar from 'expo-navigation-bar';
 import * as React from "react";
 import { useEffect } from "react";
 import { StatusBar } from 'react-native';
-
+import AnalyzedScreen from "../app/AnalyzedScreen";
 import BookScreen from "../app/book";
 import HomeScreen from "../app/index";
 import LoginScreen from "../app/login";
@@ -28,6 +28,7 @@ export default function App() {
         <Stack.Screen name="Book" component={BookScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="AnalyzedScreen" component={AnalyzedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,7 +1,14 @@
 // LoadingScreen.tsx
 import { Ionicons } from "@expo/vector-icons"; // 체크 아이콘
+import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 interface LoadingScreenProps {
   loading: boolean;
@@ -9,8 +16,13 @@ interface LoadingScreenProps {
   onResultPress?: () => void;
 }
 
-export default function LoadingScreen({ loading, showResult, onResultPress }: LoadingScreenProps) {
+export default function LoadingScreen({
+  loading,
+  showResult,
+  onResultPress,
+}: LoadingScreenProps) {
   const [done, setDone] = useState(false);
+  const navigation = useNavigation<any>(); // 네비게이션 훅 사용
 
   useEffect(() => {
     if (!loading && showResult) {
@@ -27,7 +39,9 @@ export default function LoadingScreen({ loading, showResult, onResultPress }: Lo
       {loading && (
         <>
           <ActivityIndicator size="large" color="#4A90E2" />
-          <Text style={styles.loadingText}>글밥 AI가 답변을 분석 중입니다.</Text>
+          <Text style={styles.loadingText}>
+            글밥 AI가 답변을 분석 중입니다.
+          </Text>
         </>
       )}
 
@@ -43,8 +57,13 @@ export default function LoadingScreen({ loading, showResult, onResultPress }: Lo
           <Ionicons name="checkmark-circle" size={60} color="#4A90E2" />
           <Text style={styles.doneText}>분석이 완료되었습니다!</Text>
 
-          <TouchableOpacity style={styles.resultButton} onPress={onResultPress}>
-            <Text style={styles.resultButtonText}>분석 및 피드백 보러가기</Text>
+          <TouchableOpacity
+            style={styles.resultButton}
+            onPress={() => navigation.navigate("AnalyzedScreen")} // 함수로 넣어야 함
+          >
+            <Text style={styles.resultButtonText}>
+              분석 및 피드백 보러가기
+            </Text>
           </TouchableOpacity>
         </>
       )}

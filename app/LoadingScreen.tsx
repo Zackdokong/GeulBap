@@ -1,5 +1,4 @@
-// LoadingScreen.tsx
-import { Ionicons } from "@expo/vector-icons"; // 체크 아이콘
+import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import {
@@ -10,56 +9,32 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-interface LoadingScreenProps {
-  loading: boolean;
-  showResult: boolean;
-  onResultPress?: () => void;
-}
-
-export default function LoadingScreen({
-  loading,
-  showResult,
-  onResultPress,
-}: LoadingScreenProps) {
+export default function LoadingScreen() {
   const [done, setDone] = useState(false);
-  const navigation = useNavigation<any>(); // 네비게이션 훅 사용
+  const navigation = useNavigation<any>();
 
   useEffect(() => {
-    if (!loading && showResult) {
-      // 로딩 끝나면 2초 후에 체크 아이콘 보여주기
-      const timer = setTimeout(() => setDone(true), 2000);
-      return () => clearTimeout(timer);
-    } else {
-      setDone(false);
-    }
-  }, [loading, showResult]);
+    const timer = setTimeout(() => setDone(true), 2000); // 2초 후 완료
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <SafeAreaView style={styles.fullscreenLoading}>
-      {loading && (
+      {!done ? (
         <>
           <ActivityIndicator size="large" color="#4A90E2" />
           <Text style={styles.loadingText}>
             글밥 AI가 답변을 분석 중입니다.
           </Text>
         </>
-      )}
-
-      {!loading && !done && showResult && (
-        <>
-          <ActivityIndicator size="large" color="#4A90E2" />
-          <Text style={styles.loadingText}>마무리 중...</Text>
-        </>
-      )}
-
-      {!loading && done && showResult && (
+      ) : (
         <>
           <Ionicons name="checkmark-circle" size={60} color="#4A90E2" />
           <Text style={styles.doneText}>분석이 완료되었습니다!</Text>
 
           <TouchableOpacity
             style={styles.resultButton}
-            onPress={() => navigation.navigate("AnalyzedScreen")} // 함수로 넣어야 함
+            onPress={() => navigation.navigate("AnalyzedScreen")}
           >
             <Text style={styles.resultButtonText}>
               분석 및 피드백 보러가기

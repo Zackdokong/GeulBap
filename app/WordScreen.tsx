@@ -1,15 +1,17 @@
 // WordScreen.tsx
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-export default function WordScreen({ navigation }: any) {
+export default function WordScreen() {
+  const navigation = useNavigation<any>(); 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -28,7 +30,7 @@ export default function WordScreen({ navigation }: any) {
       {/* 하단 버튼 */}
       <TouchableOpacity
         style={styles.bottomButton}
-        onPress={() => navigation.navigate("ExampleAnswerScreen")}
+        onPress={() => navigation.navigate("BestScreen")}
       >
         <Text style={styles.bottomButtonText}>우수 예시 답안 보러가기</Text>
       </TouchableOpacity>
